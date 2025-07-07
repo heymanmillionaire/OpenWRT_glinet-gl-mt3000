@@ -111,8 +111,9 @@ jobs:
     - name: Build target images
       run: |
         cd openwrt
-        make -j$(($(nproc)+1)) V=s || \
-        make V=s
+        #make -j$(($(nproc)+1)) V=s || \
+        #make V=s
+        make -j$(nproc) || make -j1 || make -j1 V=s
 
     - name: Organize files
       id: organize
